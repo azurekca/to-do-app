@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import styled from '@emotion/styled';
+import useLocalState from './hooks/useLocalState';
+
+import AddTask from './components/AddTask';
+import Header from './components/Header';
+import Task from './components/Task';
+import TaskList from './components/TaskList';
 
 function App() {
+  const [tasks, setTasks] = useLocalState([], 'to-do-app-tasks')
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <Main>
+        <AddTask />
+        <TaskList>
+          {tasks.map(task => <Task />)}
+        </TaskList>
+      </Main>
+    </>
   );
 }
+
+const Main = styled.main``;
 
 export default App;
