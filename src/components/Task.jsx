@@ -6,6 +6,7 @@ export default function Task({ task, toggleTaskDone, deleteTask }) {
   return (
     <TaskWrapper>
       <input
+        id={task.id}
         type='checkbox'
         value={task.done}
         onChange={() => toggleTaskDone(task.id)}
