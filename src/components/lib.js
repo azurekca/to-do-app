@@ -1,6 +1,11 @@
 import styled from '@emotion/styled/macro';
 import { Global } from '@emotion/react';
 
+export const Input = styled.input`
+  height: 2rem;
+  width: 100%;
+`;
+
 export const TaskList = styled.ul`
   list-style-type: none;
   display: flex;
