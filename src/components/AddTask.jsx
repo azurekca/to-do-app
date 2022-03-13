@@ -10,12 +10,12 @@ export default function AddTask({ addTask }) {
 
     addTask({
       id: nanoid(),
-      label: event.target.newTask.value,
+      label: event.target.elements.newTask.value,
       done: false
     });
 
     // reset form input
-    event.target.newTask.value = '';
+    event.target.elements.newTask.value = '';
   };
 
   return (
@@ -31,8 +31,3 @@ export default function AddTask({ addTask }) {
 AddTask.propTypes = {
   addTask: PropTypes.func.isRequired
 };
-
-const Input = styled.input`
-  height: 2rem;
-  width: 100%;
-`;
