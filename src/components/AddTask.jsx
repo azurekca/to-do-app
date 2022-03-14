@@ -8,9 +8,14 @@ export default function AddTask({ addTask }) {
     // prevent page from reloading
     event.preventDefault();
 
+    let newTask = event.target.elements.newTask.value;
+    newTask = newTask.trim();
+    // don't add an empty task
+    if (!newTask) return;
+
     addTask({
       id: nanoid(),
-      label: event.target.elements.newTask.value,
+      label: newTask,
       done: false
     });
 
