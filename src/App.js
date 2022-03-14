@@ -4,7 +4,7 @@ import useLocalState from './hooks/useLocalState';
 import AddTask from './components/AddTask';
 import Header from './components/Header';
 import Task from './components/Task';
-import { TaskList, TaskItem } from './components/lib';
+import { TaskList, TaskItem, MainWrapper } from './components/lib';
 
 function App() {
   const [tasks, setTasks] = useLocalState([], 'to-do-app-tasks');
@@ -31,7 +31,7 @@ function App() {
   return (
     <>
       <Header taskCount={tasks.length} />
-      <Main>
+      <Main as='main'>
         <AddTask addTask={addTask} />
         <TaskList>
           {tasks.map((task) => (
@@ -45,6 +45,6 @@ function App() {
   );
 }
 
-const Main = styled.main``;
+const Main = styled(MainWrapper)``;
 
 export default App;

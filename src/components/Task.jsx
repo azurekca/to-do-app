@@ -1,21 +1,21 @@
 import styled from '@emotion/styled/macro';
 import PropTypes from 'prop-types';
-import { VisuallyHidden } from './lib';
+import { Button, Checkbox, VisuallyHidden } from './lib';
 
 export default function Task({ task, toggleTaskDone, deleteTask }) {
   return (
-    <TaskWrapper>
-      <input
+    <TaskWrapper className={task.done && 'done'}>
+      <Checkbox
         id={task.id}
         type='checkbox'
-        value={task.done}
+        checked={task.done}
         onChange={() => toggleTaskDone(task.id)}
       />
       <label htmlFor={task.id}>{task.label}</label>
-      <Button onClick={() => deleteTask(task.id)}>
+      <DeleteButton onClick={() => deleteTask(task.id)}>
         <X />
         <VisuallyHidden>delete task</VisuallyHidden>
-      </Button>
+      </DeleteButton>
     </TaskWrapper>
   );
 }
@@ -29,20 +29,18 @@ Task.propTypes = {
 };
 
 const TaskWrapper = styled.div`
+  color: hsl(var(--hue) var(--saturation) 35%);
   align-items: center;
   display: flex;
   gap: 1rem;
   padding: 0.5rem;
 `;
 
-const Button = styled.button`
-  background-color: white;
-  font-size: 2rem;
-  line-height: 0;
+const DeleteButton = styled(Button)`
+  color: var(--primary-color);
+  background-color: transparent;
+  font-size: 1.5rem;
   margin-left: auto;
-  padding: 0;
-  width: 32px;
-  height: 32px;
 `;
 
 const X = () => <span>&#215;</span>;
