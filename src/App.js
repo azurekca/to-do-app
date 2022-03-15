@@ -1,4 +1,3 @@
-import styled from '@emotion/styled/macro';
 import useLocalState from './hooks/useLocalState';
 
 import AddTask from './components/AddTask';
@@ -31,7 +30,7 @@ function App() {
   return (
     <>
       <Header taskCount={tasks.length} />
-      <Main as='main'>
+      <MainWrapper as='main'>
         <AddTask addTask={addTask} />
         <TaskList>
           {tasks.map((task) => (
@@ -40,11 +39,9 @@ function App() {
             </TaskItem>
           ))}
         </TaskList>
-      </Main>
+      </MainWrapper>
     </>
   );
 }
-
-const Main = styled(MainWrapper)``;
 
 export default App;
