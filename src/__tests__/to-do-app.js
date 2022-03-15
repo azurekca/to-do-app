@@ -47,6 +47,20 @@ test('Can add tasks', () => {
   expect(screen.getByLabelText(newTask3)).toBeInTheDocument();
 });
 
+test('Cannot add an empty task', () => {
+  render(<App />);
+
+  const addTaskInput = screen.getByRole('textbox');
+  userEvent.type(addTaskInput, '{enter}');
+
+  expect(screen.queryAllByRole('listitem')).toHaveLength(0);
+  expect(screen.getByRole('banner')).toHaveTextContent('0');
+
+  addTask(' ');
+  expect(screen.queryAllByRole('listitem')).toHaveLength(0);
+  expect(screen.getByRole('banner')).toHaveTextContent('0');
+})
+
 test('Can mark a task as done and not done', () => {
   render(<App />);
 
