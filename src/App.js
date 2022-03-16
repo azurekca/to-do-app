@@ -1,9 +1,11 @@
 import { useMemo } from 'react';
 import useLocalState from './hooks/useLocalState';
+import GlobalSyles from './GlobalStyles';
 
 import AddTask from './components/AddTask';
 import Header from './components/Header';
 import Task from './components/Task';
+import Options from './components/Options';
 import { TaskList, TaskItem, MainWrapper } from './components/lib';
 
 export default function App() {
@@ -12,6 +14,7 @@ export default function App() {
     false,
     'to-do-app-hide-completed'
   );
+  const [hue, setHue] = useLocalState(200, 'to-do-app-hue');
 
   const addTask = (task) => {
     setTasks((prevTasks) => [...prevTasks, task]);
@@ -46,6 +49,7 @@ export default function App() {
 
   return (
     <>
+      <GlobalSyles hue={hue} />
       <Header
         taskCount={taskList.length}
         hideCompleted={hideCompleted}
@@ -65,6 +69,7 @@ export default function App() {
           )}
         </TaskList>
       </MainWrapper>
+      <Options setHue={setHue} />
     </>
   );
 }
