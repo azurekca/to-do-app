@@ -43,6 +43,20 @@ export const TaskList = styled.ul`
 export const TaskItem = styled.li`
   box-shadow: var(--shadow-elevation-medium);
   margin-bottom: 4px;
+  /* animate in new item by Stephanie Eckles */
+  animation: show 300ms 100ms cubic-bezier(0.38, 0.97, 0.56, 0.76) forwards;
+  opactiy: 0;
+  transform: rotateX(-90deg);
+  transform-origin: top center;
+  
+  @keyframes show {
+    100% {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  
+  /* cross out completed tasks */
   .done label {
     text-decoration: line-through;
   }
