@@ -75,7 +75,7 @@ const styles = css`
     /* Fluid typography generated with Josh Comeaus's Fluid Calculator. css-for-js exclusive content https://css-for-js.dev/ */
     --fluid-title: clamp(1rem, 2.3vw + 1rem, 2.5rem);
     --fluid-body: clamp(0.9rem, 1.8vw + 0.5rem, 1.3rem);
-    --fluid-padding: clamp(0.35rem, 6.8vw - 1rem, 3rem);
+    --fluid-padding: clamp(0.35rem, 6.8vw - 1rem, 1rem);
   }
 
   /* Global Styles */
