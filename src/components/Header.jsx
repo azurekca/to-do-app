@@ -1,13 +1,15 @@
 import styled from '@emotion/styled/macro';
 import PropTypes from 'prop-types';
 import { MainWrapper } from './lib';
+import HideCompleted from './HideCompleted';
 
-export default function Header({ taskCount }) {
+export default function Header({ taskCount, ...delegated }) {
   return (
     <HeaderWrapper>
       <InnerWrapper>
         <Title>To Do</Title>
-        <Count>{taskCount}</Count>
+        <Count>total: {taskCount}</Count>
+        <HideCompleted {...delegated} />
       </InnerWrapper>
     </HeaderWrapper>
   );
@@ -23,8 +25,9 @@ const HeaderWrapper = styled.header`
 `;
 
 const InnerWrapper = styled(MainWrapper)`
-  align-items: center;
+  align-items: baseline;
   display: flex;
+  flex-wrap: wrap;
   gap: 2rem;
 `;
 
@@ -34,5 +37,6 @@ const Title = styled.h1`
 
 const Count = styled.span`
   color: white;
-  font-size: 1.5rem;
+  font-size: 1.1rem;
+  font-variant: small-caps;
 `;

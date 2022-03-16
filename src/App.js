@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import useLocalState from './hooks/useLocalState';
 
 import AddTask from './components/AddTask';
@@ -5,8 +6,12 @@ import Header from './components/Header';
 import Task from './components/Task';
 import { TaskList, TaskItem, MainWrapper } from './components/lib';
 
-function App() {
+export default function App() {
   const [tasks, setTasks] = useLocalState([], 'to-do-app-tasks');
+  const [hideCompleted, setHideCompleted] = useLocalState(
+    true,
+    'to-do-app-hide-completed'
+  );
 
   const addTask = (task) => {
     setTasks((prevTasks) => [...prevTasks, task]);
@@ -29,13 +34,27 @@ function App() {
     setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id));
   };
 
+  const toggleHideCompleted = () => {
+    setHideCompleted((prev) => !prev);
+  };
+
+  // derive task list to show based on if hideCompleted is true
+  const taskList = useMemo(() => {
+    if (hideCompleted) return tasks.filter(task => !task.done);
+    return tasks;
+  }, [hideCompleted, tasks])
+
   return (
     <>
-      <Header taskCount={tasks.length} />
+      <Header
+        taskCount={taskList.length}
+        hideCompleted={hideCompleted}
+        toggleHideCompleted={toggleHideCompleted}
+      />
       <MainWrapper as='main'>
         <AddTask addTask={addTask} />
         <TaskList>
-          {tasks.map((task) => (
+          {taskList.map((task) =>
             <TaskItem key={task.id}>
               <Task
                 task={task}
@@ -43,11 +62,9 @@ function App() {
                 deleteTask={deleteTask}
               />
             </TaskItem>
-          ))}
+          )}
         </TaskList>
       </MainWrapper>
     </>
   );
 }
-
-export default App;
