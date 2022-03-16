@@ -1,7 +1,4 @@
-import {
-  render,
-  screen,
-} from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { within } from '@testing-library/dom';
 import userEvent from '@testing-library/user-event';
 import App from '../App';
@@ -59,7 +56,7 @@ test('Cannot add an empty task', () => {
   addTask(' ');
   expect(screen.queryAllByRole('listitem')).toHaveLength(0);
   expect(screen.getByRole('banner')).toHaveTextContent('0');
-})
+});
 
 test('Can mark a task as done and not done', () => {
   render(<App />);
@@ -124,7 +121,9 @@ test('Tasks persist when app remounts', () => {
   expect(screen.getByRole('banner')).toHaveTextContent('2');
 
   unmount();
-  expect(screen.queryByRole('heading', { name: /to do/i })).not.toBeInTheDocument();
+  expect(
+    screen.queryByRole('heading', { name: /to do/i })
+  ).not.toBeInTheDocument();
 
   render(<App />);
   expect(screen.getByRole('heading', { name: /to do/i })).toBeInTheDocument();
@@ -133,5 +132,4 @@ test('Tasks persist when app remounts', () => {
   expect(screen.getByRole('banner')).toHaveTextContent('2');
   expect(screen.getByText(newTask1)).toBeInTheDocument();
   expect(screen.getByText(newTask2)).toBeInTheDocument();
-
 });

@@ -56,4 +56,3 @@ export const VisuallyHidden = styled.span`
   padding: 0;
   border: 0;
 `;
-

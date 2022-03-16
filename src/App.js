@@ -14,11 +14,13 @@ function App() {
 
   const toggleTaskDone = (id) => {
     setTasks((prevTasks) => {
-      return prevTasks.map(task => {
-        return task.id === id ? ({
-          ...task,
-          done: !task.done
-        }) : task
+      return prevTasks.map((task) => {
+        return task.id === id
+          ? {
+            ...task,
+            done: !task.done
+          }
+          : task;
       });
     });
   };
@@ -35,7 +37,11 @@ function App() {
         <TaskList>
           {tasks.map((task) => (
             <TaskItem key={task.id}>
-              <Task task={task} toggleTaskDone={toggleTaskDone} deleteTask={deleteTask} />
+              <Task
+                task={task}
+                toggleTaskDone={toggleTaskDone}
+                deleteTask={deleteTask}
+              />
             </TaskItem>
           ))}
         </TaskList>

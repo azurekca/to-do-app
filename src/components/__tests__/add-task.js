@@ -15,12 +15,14 @@ test('Can create a new task', () => {
   // add task by pressing 'enter'
   userEvent.keyboard('{enter}');
   expect(addTask).toHaveBeenCalledTimes(1);
-  expect(addTask).toHaveBeenCalledWith(expect.objectContaining({
-    id: expect.any(String),
-    label: newTask,
-    done: false
-  }))
+  expect(addTask).toHaveBeenCalledWith(
+    expect.objectContaining({
+      id: expect.any(String),
+      label: newTask,
+      done: false
+    })
+  );
 
   // check that input is empty after new task is created
   expect(addTaskInput.value).toBe('');
-})
+});
