@@ -48,14 +48,14 @@ export const TaskItem = styled.li`
   opactiy: 0;
   transform: rotateX(-90deg);
   transform-origin: top center;
-  
+
   @keyframes show {
     100% {
       opacity: 1;
       transform: none;
     }
   }
-  
+
   /* cross out completed tasks */
   .done label {
     text-decoration: line-through;

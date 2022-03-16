@@ -144,7 +144,7 @@ test('Toggling hide-completed hides completed tasks', () => {
 
   // mark task 2 as done
   const secondTask = screen.getByLabelText(newTask2);
-  userEvent.click(secondTask)
+  userEvent.click(secondTask);
 
   // should still have 3 tasks showing
   expect(screen.getAllByRole('listitem')).toHaveLength(3);
@@ -162,4 +162,4 @@ test('Toggling hide-completed hides completed tasks', () => {
   expect(screen.getByLabelText(newTask1)).toBeInTheDocument();
   expect(screen.queryByLabelText(newTask2)).not.toBeInTheDocument();
   expect(screen.getByLabelText(newTask3)).toBeInTheDocument();
-})
+});

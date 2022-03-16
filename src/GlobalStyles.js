@@ -71,7 +71,7 @@ const styles = css`
       3.2px 6.4px 8px -1.1px hsl(var(--primary-hsl) / 0.23),
       5.1px 10.1px 12.7px -1.4px hsl(var(--primary-hsl) / 0.23),
       7.9px 15.7px 19.8px -1.8px hsl(var(--primary-hsl) / 0.23);
-      
+
     /* Fluid typography generated with Josh Comeaus's Fluid Calculator. css-for-js exclusive content https://css-for-js.dev/ */
     --fluid-title: clamp(1rem, 2.3vw + 1rem, 2.5rem);
     --fluid-body: clamp(0.9rem, 1.8vw + 0.5rem, 1.3rem);

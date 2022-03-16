@@ -40,9 +40,9 @@ export default function App() {
 
   // derive task list to show based on if hideCompleted is true
   const taskList = useMemo(() => {
-    if (hideCompleted) return tasks.filter(task => !task.done);
+    if (hideCompleted) return tasks.filter((task) => !task.done);
     return tasks;
-  }, [hideCompleted, tasks])
+  }, [hideCompleted, tasks]);
 
   return (
     <>
@@ -54,7 +54,7 @@ export default function App() {
       <MainWrapper as='main'>
         <AddTask addTask={addTask} />
         <TaskList>
-          {taskList.map((task) =>
+          {taskList.map((task) => (
             <TaskItem key={task.id}>
               <Task
                 task={task}
@@ -62,7 +62,7 @@ export default function App() {
                 deleteTask={deleteTask}
               />
             </TaskItem>
-          )}
+          ))}
         </TaskList>
       </MainWrapper>
     </>
