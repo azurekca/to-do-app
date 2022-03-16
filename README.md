@@ -11,6 +11,12 @@ Add tasks to the list, mark tasks as done and not done, and delete tasks from th
 - Mark tasks as done/not done by checking/unchecking a task.
 - Delete tasks by clicking the 'X' button.
 
+## Planned Features
+
+- customize the app's colour theme
+- edit exisiting tasks
+- sort tasks
+
 ## Getting Started
 
 Here's how to get the poject running for local development:
