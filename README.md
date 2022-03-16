@@ -61,6 +61,27 @@ npm test:coverage
 
 For more information, see [running tests](https://facebook.github.io/create-react-app/docs/running-tests).
 
+### Coverage Report
+
+For commit cda811c5
+
+File                | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
+--------------------|---------|----------|---------|---------|-------------------
+All files           |   95.65 |      100 |   96.15 |      95 |
+ src                |   88.46 |      100 |   93.33 |      85 |
+  App.js            |     100 |      100 |     100 |     100 |
+  GlobalStyles.js   |       0 |      100 |       0 |       0 | 4-7
+  index.js          |       0 |      100 |     100 |       0 | 6
+ src/components     |     100 |      100 |     100 |     100 |
+  AddTask.jsx       |     100 |      100 |     100 |     100 |
+  Header.jsx        |     100 |      100 |     100 |     100 |
+  HideCompleted.jsx |     100 |      100 |     100 |     100 |
+  Task.jsx          |     100 |      100 |     100 |     100 |
+  lib.js            |     100 |      100 |     100 |     100 |
+ src/hooks          |     100 |      100 |     100 |     100 |
+  useLocalState.js  |     100 |      100 |     100 |     100 |
+
+
 ### Build the App For Production
 
 ```
