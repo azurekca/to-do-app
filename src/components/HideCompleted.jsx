@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled/macro';
-import { Checkbox } from './lib';
+import { Checkbox, Label } from './lib';
 
 export default function HideCompleted({ hideCompleted, toggleHideCompleted }) {
   return (
@@ -11,7 +11,7 @@ export default function HideCompleted({ hideCompleted, toggleHideCompleted }) {
         checked={hideCompleted}
         onChange={toggleHideCompleted}
       />
-      <label htmlFor='hide-completed'>Hide Completed Tasks</label>
+      <Label htmlFor='hide-completed'>Hide Completed Tasks</Label>
     </Wrapper>
   );
 }

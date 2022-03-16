@@ -28,15 +28,16 @@ const InnerWrapper = styled(MainWrapper)`
   align-items: baseline;
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: var(--fluid-padding);
 `;
 
 const Title = styled.h1`
+  font-size: var(--fluid-title);
   color: white;
 `;
 
 const Count = styled.span`
   color: white;
-  font-size: 1.1rem;
+  font-size: var(--fluid-body);
   font-variant: small-caps;
 `;

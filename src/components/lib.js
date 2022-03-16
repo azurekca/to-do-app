@@ -1,10 +1,10 @@
 import styled from '@emotion/styled/macro';
 
-/** Clever helper snippets by Stephanie Eckles https://smolcss.dev/ */
 export const MainWrapper = styled.div`
   margin: 0 auto 1rem;
   max-width: 60ch;
-  padding: 5vh clamp(1rem, 5%, 3rem);
+  /** Clever helper snippets by Stephanie Eckles https://smolcss.dev/ */
+  padding: 5vh var(--fluid-padding) 2vh;
 `;
 
 export const Button = styled.button`
@@ -26,6 +26,10 @@ export const Input = styled.input`
   border: none;
   box-shadow: var(--shadow-elevation-medium);
   padding: 0 4px;
+`;
+
+export const Label = styled.label`
+  font-size: var(--fluid-body);
 `;
 
 export const TaskList = styled.ul`

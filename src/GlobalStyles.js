@@ -53,8 +53,8 @@ const styles = css`
 
   :root {
     --hue: 200deg;
-    --saturation: 36%;
-    --primary-hsl: var(--hue) var(--saturation) 50%;
+    --saturation: 40%;
+    --primary-hsl: var(--hue) var(--saturation) 43%;
     --primary-color: hsl(var(--primary-hsl));
 
     /* Fancy shadows generated with Josh Comeau's shadow tool https://www.joshwcomeau.com/shadow-palette/ */
@@ -71,6 +71,11 @@ const styles = css`
       3.2px 6.4px 8px -1.1px hsl(var(--primary-hsl) / 0.23),
       5.1px 10.1px 12.7px -1.4px hsl(var(--primary-hsl) / 0.23),
       7.9px 15.7px 19.8px -1.8px hsl(var(--primary-hsl) / 0.23);
+      
+    /* Fluid typography generated with Josh Comeaus's Fluid Calculator. css-for-js exclusive content https://css-for-js.dev/ */
+    --fluid-title: clamp(1rem, 2.3vw + 1rem, 2.5rem);
+    --fluid-body: clamp(0.9rem, 1.8vw + 0.5rem, 1.3rem);
+    --fluid-padding: clamp(0.35rem, 6.8vw - 1rem, 3rem);
   }
 
   /* Global Styles */

@@ -1,6 +1,6 @@
 import styled from '@emotion/styled/macro';
 import PropTypes from 'prop-types';
-import { Button, Checkbox, VisuallyHidden } from './lib';
+import { Button, Checkbox, Label, VisuallyHidden } from './lib';
 
 export default function Task({ task, toggleTaskDone, deleteTask }) {
   return (
@@ -11,7 +11,7 @@ export default function Task({ task, toggleTaskDone, deleteTask }) {
         checked={task.done}
         onChange={() => toggleTaskDone(task.id)}
       />
-      <label htmlFor={task.id}>{task.label}</label>
+      <Label htmlFor={task.id}>{task.label}</Label>
       <DeleteButton onClick={() => deleteTask(task.id)}>
         <X />
         <VisuallyHidden>delete task</VisuallyHidden>
