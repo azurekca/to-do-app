@@ -9,7 +9,7 @@ import { TaskList, TaskItem, MainWrapper } from './components/lib';
 export default function App() {
   const [tasks, setTasks] = useLocalState([], 'to-do-app-tasks');
   const [hideCompleted, setHideCompleted] = useLocalState(
-    true,
+    false,
     'to-do-app-hide-completed'
   );
 
