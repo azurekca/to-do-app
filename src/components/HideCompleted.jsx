@@ -6,7 +6,7 @@ export default function HideCompleted({ hideCompleted, toggleHideCompleted }) {
   return (
     <Wrapper>
       <Checkbox
-        name='hide-completed'
+        id='hide-completed'
         type='checkbox'
         checked={hideCompleted}
         onChange={toggleHideCompleted}

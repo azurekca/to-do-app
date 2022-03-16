@@ -25,10 +25,15 @@ export default function AddTask({ addTask }) {
 
   return (
     <form onSubmit={handleAdd}>
-      <label htmlFor='newTask'>
+      <label htmlFor='new-task'>
         <VisuallyHidden>Add task</VisuallyHidden>
       </label>
-      <Input name='newTask' type='text' placeholder='Type to add new tasks' />
+      <Input
+        id='new-task'
+        name='newTask'
+        type='text'
+        placeholder='Type to add new tasks'
+      />
     </form>
   );
 }
