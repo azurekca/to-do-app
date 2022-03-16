@@ -29,6 +29,7 @@ Task.propTypes = {
 };
 
 const TaskWrapper = styled.div`
+  background-color: hsl(var(--primary-hsl) / 0.05);
   color: hsl(var(--hue) var(--saturation) 35%);
   align-items: center;
   display: flex;
@@ -41,6 +42,9 @@ const DeleteButton = styled(Button)`
   background-color: transparent;
   font-size: 1.5rem;
   margin-left: auto;
+  :hover {
+    color: hsl(var(--primary-hue) var(--primary-saturation) 70%);
+  }
 `;
 
 const X = () => <span>&#215;</span>;
