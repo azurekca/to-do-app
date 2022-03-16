@@ -133,3 +133,33 @@ test('Tasks persist when app remounts', () => {
   expect(screen.getByText(newTask1)).toBeInTheDocument();
   expect(screen.getByText(newTask2)).toBeInTheDocument();
 });
+
+test('Toggling hide-completed hides completed tasks', () => {
+  render(<App />);
+
+  // add tasks
+  const newTask1 = addTask('task item 1');
+  const newTask2 = addTask('task item 2');
+  const newTask3 = addTask('task item 3');
+
+  // mark task 2 as done
+  const secondTask = screen.getByLabelText(newTask2);
+  userEvent.click(secondTask)
+
+  // should still have 3 tasks showing
+  expect(screen.getAllByRole('listitem')).toHaveLength(3);
+  expect(screen.getByRole('banner')).toHaveTextContent('3');
+
+  // hide tasks should start as unchecked
+  const hideTasks = screen.getByLabelText(/hide/i);
+  expect(hideTasks).not.toBeChecked();
+  // toggle hide tasks
+  userEvent.click(hideTasks);
+
+  // should now have 2 tasks showing
+  expect(screen.getAllByRole('listitem')).toHaveLength(2);
+  expect(screen.getByRole('banner')).toHaveTextContent('2');
+  expect(screen.getByLabelText(newTask1)).toBeInTheDocument();
+  expect(screen.queryByLabelText(newTask2)).not.toBeInTheDocument();
+  expect(screen.getByLabelText(newTask3)).toBeInTheDocument();
+})
